@@ -30,6 +30,6 @@ else{
     }
 
     else{
-        alert(userNumber+1);
+        alert(++userNumber);
     }
 }
