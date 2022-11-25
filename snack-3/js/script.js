@@ -5,7 +5,7 @@ const listOfNumbers = [1,1,1,1,99,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 let somma = 0;
 let average = 0;
 const numberLimit = 10;
-let maxNumber = 0;
+let maxNumber = listOfNumbers[0];
 
 for(let i=0 ; i<numberLimit ; i++){
     somma += listOfNumbers[i];
