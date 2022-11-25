@@ -1,12 +1,14 @@
 // Inserisci un numero, se è pari stampa il numero, se è dispari stampa il numero successivo.
 
 let userNumber = prompt('Inserisci un numero');
-userNumber = userNumber.replace(/\s/g,'');
 
 if(userNumber === null){
     alert('Il programma è stato annullato');
 }
-else if(userNumber === ''){
+
+userNumber = userNumber.replace(/\s/g,'');
+
+if(userNumber === ''){
     alert('Non hai digitato alcun valore');
 }
 else if(!isFinite(userNumber)){
@@ -27,7 +29,7 @@ else{
         alert(userNumber);
     }
 
-    else if(userNumber%2 === 1){
-        alert(userNumber + 1);
+    else{
+        alert(userNumber+1);
     }
 }
