@@ -1,5 +1,5 @@
-let baseNumber = 2;
-while(baseNumber < 1000){
-    baseNumber = baseNumber*2;
-    console.log(baseNumber);
+let exponent = 1;
+while(exponent < 1000){
+    exponent = exponent*2;
+    console.log(exponent);
 }
