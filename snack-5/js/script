@@ -9,12 +9,40 @@ const names = ['Michela', 'Giuseppina', 'Taylor','Donna', 'Marsha', 'Fabio', 'Ro
 const lastnames = ['Cappelletti', 'Jager', 'Porcinelli' , 'Buffetti' , 'Forghieri', 'Papagni', 'Marazzini'];
 const guests = [];
 
-const numberOfGuests = +prompt('Quanti invitati ci sono?');
+let numberOfGuests = prompt('Quanti invitati ci sono?');
+
+while(!isFinite(numberOfGuests)){
+    alert('Puoi digitare solo numeri');
+    numberOfGuests = prompt('Ridigita il valore');
+}
+
+if(numberOfGuests === null){
+    alert('Il programma è stato annullato');
+}
+
+numberOfGuests = numberOfGuests.replace(/\s/g,'');
+
+if(numberOfGuests === ''){
+    alert('Non hai digitato alcun valore , quindi non ci sono invitati');
+}
+
+numberOfGuests = parseFloat(numberOfGuests);
+
+if((numberOfGuests - Math.floor(numberOfGuests)) !== 0){
+    alert('ATTENZIONE\nIl valore non può essere decimale');
+}
+
+else{
+    alert('ATTENZIONE\nIl valore non può essere negativo');
+}
+
+numberOfGuests = parseFloat('Ridigita il valore');
 
 for(let i=0 ; i<numberOfGuests ; i++){
     const guestName = names[Math.floor(Math.random() * names.length)];
     const guestLastname = lastnames[Math.floor(Math.random() * lastnames.length)];
     const guest = guestName + ' ' + guestLastname;
+    console.log(guest);
     guests.push(guest);
 }
 
