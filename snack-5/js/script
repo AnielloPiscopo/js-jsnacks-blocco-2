@@ -11,32 +11,20 @@ const guests = [];
 
 let numberOfGuests = prompt('Quanti invitati ci sono?');
 
-while(!isFinite(numberOfGuests)){
-    alert('Puoi digitare solo numeri');
-    numberOfGuests = prompt('Ridigita il valore');
+numberOfGuests = controlValue(numberOfGuests);
+
+while((numberOfGuests - Math.floor(numberOfGuests)) || numberOfGuests<0){
+    if((numberOfGuests - Math.floor(numberOfGuests)) !== 0){
+        alert('ATTENZIONE\nIl valore non può essere decimale');
+    }
+    
+    else if(numberOfGuests<0){
+        alert('ATTENZIONE\nIl valore non può essere negativo');
+    }
+
+    numberOfGuests = prompt('Rdigita il valore');
+    numberOfGuests = controlValue(numberOfGuests);
 }
-
-if(numberOfGuests === null){
-    alert('Il programma è stato annullato');
-}
-
-numberOfGuests = numberOfGuests.replace(/\s/g,'');
-
-if(numberOfGuests === ''){
-    alert('Non hai digitato alcun valore , quindi non ci sono invitati');
-}
-
-numberOfGuests = parseFloat(numberOfGuests);
-
-if((numberOfGuests - Math.floor(numberOfGuests)) !== 0){
-    alert('ATTENZIONE\nIl valore non può essere decimale');
-}
-
-else{
-    alert('ATTENZIONE\nIl valore non può essere negativo');
-}
-
-numberOfGuests = parseFloat('Ridigita il valore');
 
 for(let i=0 ; i<numberOfGuests ; i++){
     const guestName = names[Math.floor(Math.random() * names.length)];
@@ -47,3 +35,31 @@ for(let i=0 ; i<numberOfGuests ; i++){
 }
 
 console.log(guests);
+
+
+
+
+
+
+function controlValue(a){
+    if(!Number.isNaN(a)){
+        while(!isFinite(a)){
+            alert('Puoi digitare solo numeri');
+            a = prompt('Ridigita il valore');
+        }
+
+        if(a === null){
+            alert('Il programma è stato annullato');
+            return a;
+        }
+    
+        a = a.replace(/\s/g,'');
+    
+        if(a === ''){
+            alert('Non hai digitato alcun valore , quindi non ci sono invitati');
+            return a;
+        }
+    }
+    
+    return parseFloat(a);
+}
